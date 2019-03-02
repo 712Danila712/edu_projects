@@ -1,5 +1,2 @@
-x = input()
-s = 0
-for i in x:
-    s += ord(i) - 96
-print(s)
+x = [ord(i) - 96 for i in input()]
+print(sum(x))
