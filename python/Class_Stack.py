@@ -6,27 +6,35 @@ class Stack:
         self.count = 0
 
     def push(self, item):
-        if self.top + 1 == self.size + 1:
-            print("Lack of space")
-        else:
-            self.content.append(item)
-            self.top += 1
-            self.count += 1
+        while True:
+            if self.top + 1 == self.size + 1:
+                print("Lack of space")
+                break
+            else:
+                self.content.append(item)
+                self.top += 1
+                self.count += 1
+                break
 
     def pop(self, smh):
-        if self.top - 1 == 0:
-            print("Out of space")
-        else:
-            if smh in self.content:
-                self.content.remove(smh)
-                self.top -= 1
-                self.count -= 1
+        while True:
+            if self.top - 1 == 0:
+                print("Out of space")
+                break
+            else:
+                if smh in self.content:
+                    self.content.remove(smh)
+                    self.top -= 1
+                    self.count -= 1
+                    break
 
     def write(self):
         print("size:{} content:{} top:{}".format(self.size, self.content, self.top))
 
     def clear(self):
         del self.content[0:]
+        self.count = 0
+        self.top = 0
 
 
 if __name__ == '__main__':
@@ -44,3 +52,4 @@ if __name__ == '__main__':
     a.clear()
 
     a.write()
+
